@@ -1,10 +1,9 @@
 # 🐶🐱 Classification supervisée d'images de chiens et de chats  
 
-## 📌 Présentation  
+##  Présentation  
+
 Ce projet se concentre sur la classification supervisée d'images de chiens et de chats.  
-
 Nous avons constitué un ensemble de données comprenant **1 028 images par classe**, soit un total de **2 058 images**, extraites d'un ensemble plus vaste de **25 000 images**.  
-
 Les données utilisées dans ce projet peuvent être téléchargées à l'adresse suivante :  
 🔗 [Microsoft Dataset](https://www.microsoft.com/en-us)  
 
