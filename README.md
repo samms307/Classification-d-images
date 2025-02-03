@@ -32,16 +32,25 @@ Le prétraitement des images a été effectué via un pipeline automatisé, incl
     - Uniformisation des canaux de couleur (conversion en RGB si nécessaire).
     - Gestion des images floues pour garantir la qualité des entrées.
   
-L
-## Méthodologie
 
-### Étapes du Projet
+### 2️⃣ **Entraînement des Modèles**
 
-1. **Prétraitement des Données**
-   - Redimensionnement des images
-   - Nettoyage des données
-   - Normalisation
-   - Séparation en ensembles d'entraînement, de validation et de test
+Après le prétraitement, nous avons entraîné et comparé trois architectures de réseaux de neurones :
+
+- **Perceptron Multi-Couches (MLP)** : utilisé comme baseline pour évaluer les performances des modèles plus avancés.
+- **Réseau de Neurones Convolutifs (CNN)** : conçu spécifiquement pour l’analyse d’images.
+- **Modèle pré-entraîné VGG16** : exploité via le transfert d’apprentissage pour améliorer les performances.
+  
+L’entraînement a été réalisé avec :
+✅ Optimiseur : [Exemple : Adam / SGD]
+✅ Fonction de perte : [Exemple : Cross-entropy]
+✅ Taux d’apprentissage ajusté avec une scheduler policy
+✅ Augmentation de données pour améliorer la robustesse du modèle
+
+
+
+
+
 
 2. **Modélisation**
    - Développement des différentes architectures : MLP, CNN, VGG16
