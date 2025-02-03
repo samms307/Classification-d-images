@@ -37,38 +37,34 @@ Le prétraitement des images a été effectué via un pipeline automatisé, incl
 
 Après le prétraitement, nous avons entraîné et comparé trois architectures de réseaux de neurones :
 
-- **Perceptron Multi-Couches (MLP)** : utilisé comme baseline pour évaluer les performances des modèles plus avancés.
-- **Réseau de Neurones Convolutifs (CNN)** : conçu spécifiquement pour l’analyse d’images.
-- **Modèle pré-entraîné VGG16** : exploité via le transfert d’apprentissage pour améliorer les performances.
-  
-L’entraînement a été réalisé avec :
-✅ Optimiseur : [Exemple : Adam / SGD]
-✅ Fonction de perte : [Exemple : Cross-entropy]
-✅ Taux d’apprentissage ajusté avec une scheduler policy
-✅ Augmentation de données pour améliorer la robustesse du modèle
+- **Perceptron Multi-Couches (MLP)** : développé **from scratch** pour servir de baseline et évaluer les performances des modèles plus avancés.
+- **Réseau de Neurones Convolutifs (CNN)** : également développé **from scratch**, conçu spécifiquement pour l’analyse d'images.
+- **Modèle pré-entraîné VGG16** : exploité via **deux stratégies de transfert d'apprentissage** :  
+  - **Transfert pur** : seule la dernière couche est modifiée, tandis que les couches préexistantes de VGG16 sont conservées et gelées.  
+  - **Fine-tuning** : certaines couches de VGG16 sont dégelées et réajustées pour mieux s'adapter à notre tâche spécifique.
+
+L’entraînement a été réalisé avec les éléments suivants comme base et d'autres élements selon les besoins spécifiques de chaque modèle :  
+- ✅ Optimiseur 
+- ✅ Fonction de perte 
+- ✅ Taux d’apprentissage
 
 
 
+### 3️⃣ **Évaluation des Performances (Entraînement/Validation et sur le Test)**
+
+L’objectif principal de cette étape était de sélectionner le modèle le plus performant et d’évaluer sa capacité à généraliser sur des données non vues.
+
+#### **3.1 Évaluation sur les Ensembles d'Entraînement et de Validation** :
+- Sélection du meilleur modèle en fonction de la **combinaison optimale de la perte qui diminue** et de la **précision qui augmente** sur l'ensemble de validation. Cette évolution conjointe assure que le modèle généralise bien, apprenant à prédire correctement tout en évitant le surapprentissage.
+
+#### **3.2 Évaluation sur l’Ensemble de Test** :
+- Utilisation de la **matrice de confusion** pour analyser les erreurs de classification (faux positifs, faux négatifs).
+- Calcul et analyse de la **courbe ROC** et de l’**AUC** pour mesurer la capacité du modèle à discriminer efficacement entre les classes.
 
 
-
-2. **Modélisation**
-   - Développement des différentes architectures : MLP, CNN, VGG16
-   - Conception et configuration soigneuses de chaque architecture
-
-3. **Évaluation des Performances**
-   - Comparaison des résultats obtenus sur les ensembles d'entraînement et de validation
-   - Analyse de la précision et de la fonction de perte pour chaque modèle
-   - Sélection du modèle le plus performant, en s'assurant qu'il généralise bien sur de nouvelles données
-  
-### Outils et Technologies
+ 
+## 🛠️ **Outils et Technologies**
 
 - **Langage** : Python
-- **Bibliothèques** : TensorFlow, Keras
+- **Bibliothèques** : TensorFlow, Keras, OpenCV
 
-
-🛠️ Technologies utilisées
-Python
-TensorFlow / PyTorch
-OpenCV
-Matplotlib & Seaborn (visualisation)
